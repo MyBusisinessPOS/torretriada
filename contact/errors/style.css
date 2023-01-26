@@ -1,0 +1,11 @@
+body{ background:#ee3d42;}
+.logo{ display:block; position:absolute; width:500px; background:url(Slogan_logo.svg) center no-repeat; height:102px; border-bottom:1px solid #FFF; left:50%; top:50%; z-index:3;margin-top: -300px;
+margin-left: -250px;}
+.info{ position:absolute; width:500px;left:50%; top:50%; z-index:3;margin-top: -160px;
+margin-left: -220px;}
+.info h1 {font-family: 'Roboto', sans-serif; font-weight:700; font-size:14px; color:#FFF;}
+.info p {font-family: 'Roboto', sans-serif; font-weight:400; font-size:12px; color:#FFF;}
+.footer{ display:block; position:absolute; width:500px; height:102px; border-top:1px solid #FFF; left:50%; top:50%; z-index:3; margin-left: -250px;}
+.footer p{font-family: 'Roboto', sans-serif; font-weight:300; font-style:italic; font-size:12px; color:#FFF; text-align:center; margin-top:20px;}
+.footer a{font-family: 'Roboto', sans-serif; font-weight:300; font-style:italic; font-size:12px; color:#FFF; text-decoration:none;}
+.footer a:hover{ color:#50c5d7;}

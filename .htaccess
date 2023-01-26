@@ -1,0 +1,48 @@
+<IfModule mod_rewrite.c>
+	Options +FollowSymLinks
+
+	RewriteEngine On
+
+	#RewriteCond %{REQUEST_FILENAME} !-f
+	#RewriteCond %{REQUEST_FILENAME} !-d
+
+	RewriteCond %{HTTPS} off
+	RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
+	RewriteRule ^inicio$ index.php [L]
+	RewriteRule ^noticias$ noticias.php [L]
+	RewriteRule ^inicio/(.+)$ index.php?success=$1 [L]
+	RewriteRule ^detalle-noticia/([0-9]+)-(.+)$ detalle-noticia.php?idBlog=$1&urlAmigable=$2 [L]
+	RewriteRule ^politica-de-privacidad$ politica-de-privacidad.php [L]
+	RewriteRule ^master-plan$ master-plan.php [L]
+	RewriteRule ^cotizador$ master-plan.php [L]
+	RewriteRule ^agradecimiento$ agradecimiento.php [L]
+	RewriteRule ^descargar-video$ descargar-video.php [L]
+	RewriteRule ^descargar-video/(.+)$ descargar-video.php?success=$1 [L]
+
+	ErrorDocument 404 /errors/404.html
+	ErrorDocument 403 /errors/403.html
+	ErrorDocument 400 /errors/400.html
+	ErrorDocument 500 /errors/500.html
+
+</IfModule>
+## EXPIRES CACHING ##
+<IfModule mod_expires.c>
+#ExpiresActive On
+#ExpiresByType image/jpg "access 1 year"
+#ExpiresByType image/jpeg "access 1 year"
+#ExpiresByType image/gif "access 1 year"
+#ExpiresByType image/png "access 1 year"
+#ExpiresByType text/css "access 1 month"
+#ExpiresByType text/html "access 1 month"
+#ExpiresByType application/pdf "access 1 month"
+#ExpiresByType text/x-javascript "access 1 month"
+#ExpiresByType application/x-shockwave-flash "access 1 month"
+#ExpiresByType image/x-icon "access 1 year"
+#ExpiresDefault "access plus 1 month"
+</IfModule>
+## EXPIRES CACHING ##
+
+
+# DO NOT REMOVE THIS LINE AND THE LINES BELLOW UPGRADE_INSECURE_REQUESTS:aranza.com.mx
+Header always set Content-Security-Policy: upgrade-insecure-requests
+# DO NOT REMOVE THIS LINE AND THE LINES BELLOW UPGRADE_INSECURE_REQUESTS:aranza.com.mx

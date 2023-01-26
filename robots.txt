@@ -1,0 +1,7 @@
+User-Agent: *
+Disallow: /admin/
+Disallow: /panel/
+Disallow: /errors/
+Disallow: /activecampaing/
+Disallow: /controller/
+Disallow: /SITIO_OCULTO/
