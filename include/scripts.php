@@ -403,7 +403,7 @@ $(document).ready(function(){
 	});
 	//$("#modalAgenda").modal("show");
 
-	<?php if($_REQUEST["success"]){ ?>
+	<?php if(isset($_REQUEST["success"]) && $_REQUEST["success"]){ ?>
 		$("#modalSuccess").modal("show");
 	<?php } ?>
 

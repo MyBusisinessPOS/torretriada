@@ -158,11 +158,17 @@ class lote extends Archivo
 		echo json_encode($resultados);
 	}
 
+	function Logs($Linea, $FILE = "logs")
+    {
+        $file = fopen($FILE . ".txt", "a");
+        fwrite($file, time() . '=>' . $Linea . PHP_EOL);
+        fclose($file);
+    }
+
 	function listaLoteJson(){
 		$sql = "select * from lote";
 		$con = new conexion();
 		$temporal = $con -> ejecutar_sentencia($sql);
-
 		$resultados = array();
 
 		while ($row = mysqli_fetch_array($temporal)) {
@@ -172,14 +178,14 @@ class lote extends Archivo
 			$registro['metrosCuadrados'] = $row['metrosCuadrados'];
 			$registro['status'] = $row['status'];
 			$registro['ruta'] = $row['ruta'];
-			$registro['precio'] = $row['precio'];
+			$registro['precio'] = empty($row['precio']) ? 0 : $row['precio'];
 			$descuento = $registro['precio'] * 0.12;
 			$registro['enganche'] = $row['enganche'];
-			$registro['precioFormato'] = number_format($registro['precio'], 2);
-			$registro['m2Formato'] = number_format($registro['metrosCuadrados'], 2);
-			$registro['engancheFormato'] = number_format($registro['enganche'], 2);
-			$registro['mensualidadFormato'] = number_format($row['mensualidad'], 2);
-			$registro['saldoentregaFormato'] = number_format($row['saldo_entrega'], 2);
+			$registro['precioFormato'] = empty($registro['precio']) ? 0 : number_format($registro['precio'], 2);
+			$registro['m2Formato'] = empty($registro['metrosCuadrados']) ? 0 : number_format($registro['metrosCuadrados'], 2);
+			$registro['engancheFormato'] = empty($registro['enganche']) ? 0 : number_format($registro['enganche'], 2);
+			$registro['mensualidadFormato'] = empty($row['mensualidad']) ? 0 : number_format($row['mensualidad'], 2);
+			$registro['saldoentregaFormato'] = empty($row['saldo_entrega']) ? 0 : number_format($row['saldo_entrega'], 2);
 			$registro['tipo'] = $row['tipo'];
 			$registro['nombre'] = $row['nombre'];
 			$registro['meses'] = $row['meses'];
