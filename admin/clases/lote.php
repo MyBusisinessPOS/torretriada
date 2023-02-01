@@ -132,6 +132,9 @@ class lote extends Archivo
 			$registro['status'] = $fila['status'];
 			$registro['ruta'] = $fila['ruta'];
 			$registro['meses'] = $fila['meses'];
+			$registro['interior'] = $fila['interior'];
+			$registro['terrazas'] = $fila['terrazas'];
+			$registro['cajones'] = $fila['cajones'];
 			array_push($resultados,$registro);
 		}
 		mysqli_free_result($temporal);
@@ -150,7 +153,10 @@ class lote extends Archivo
 			$registro['metrosCuadrados'] = $fila['metrosCuadrados'];
 			$registro['precio'] = $fila['precio'];
 			$registro['status'] = $fila['status'];
-			$registro['ruta'] = $fila['ruta'];
+			$registro['ruta'] = $fila['ruta'];			
+			$registro['interior'] = $fila['interior'];
+			$registro['terrazas'] = $fila['terrazas'];
+			$registro['cajones'] = $fila['cajones'];
 			array_push($resultados,$registro);
 		}
 		mysqli_free_result($temporal);
@@ -189,8 +195,15 @@ class lote extends Archivo
 			$registro['tipo'] = $row['tipo'];
 			$registro['nombre'] = $row['nombre'];
 			$registro['meses'] = $row['meses'];
+
+			//Eduardo Gonzalez
+			$registro['interior'] = empty($row['interior']) ? 0 : number_format($row['interior'], 2);
+			$registro['terrazas'] = empty($row['terrazas']) ? 0 : number_format($row['terrazas'], 2);
+			$registro['cajones'] = $row['cajones'];
 			array_push($resultados, $registro);
 		}
+
+		//echo $resultados;
 		mysqli_free_result($temporal);
 		echo json_encode($resultados);
 	}

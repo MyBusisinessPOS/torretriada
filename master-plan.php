@@ -93,6 +93,17 @@
                  <div class="local" id="noLote">
                    LOCAL 55
                  </div>
+
+                 <div class="texto-precio">
+                    Interior  <b id="interior"></b>
+                 </div>
+                 <div class="texto-precio">
+                    Terrazas  <b id="terrazas"></b>
+                 </div>
+                 <div class="texto-precio">
+                    Cajones <b id="cajones"></b>
+                 </div>
+
                  <div class="area-total">
                    Área total <b id="m2">500 m<sup>2</sup></b>
                  </div>

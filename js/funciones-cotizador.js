@@ -43,7 +43,7 @@ $(function ($) {
 		success: function (data) {
 			lotes = JSON.parse(data)
 			// lotes = JSON.parse(data);
-			// console.log(data);
+			 console.log(data);
 		}
 	}).done(function () {
 		for (var i in lotes) {
@@ -95,6 +95,12 @@ $(function ($) {
 
 							$('#modalCotizador #noLote').text(_json.nombre);
 							$('#modalCotizador #m2').html("" + _json.m2Formato + " m<sup>2</sup>")
+
+							$('#modalCotizador #interior').html("INTERIORES" + _json.interior + " m<sup>2</sup>")
+							$('#modalCotizador #terrazas').html("TERRAZAS  NNNN" + _json.terrazas + " m<sup>2</sup>")
+							$('#modalCotizador #cajones').html("CAJONES" + _json.cajones + "")
+
+
 							$('#modalCotizador #precio').html("$" + _json.precioFormato + "");
 							$('#modalCotizador #c-lote').val(_json.nombre);
 							$('#modalCotizador #enganche').html("$" + _json.engancheFormato + "");
@@ -120,7 +126,7 @@ $(function ($) {
 							}
 							$("#formContact")[0].reset();
 							$('#modalCotizador').modal("show");
-							//console.log(_json.modelo);
+							console.log("Eduardo"._json.modelo);
 						}
 					}
 				}
